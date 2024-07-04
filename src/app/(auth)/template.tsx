@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 
 const links = [
     {
@@ -20,11 +20,12 @@ const links = [
 
 export default function Layout({children}:{children: ReactNode}){
     const pathName = usePathname();
+    const [search,setSearch] = useState("")
 
     return(
         <div>
-            <header style={{backgroundColor: "#272592",color: "#fff", paddingBlock: 20,textAlign: 'center'}}>
-                <ul className="flex items-center gap-2">
+            <header className="flex items-center justify-between py-4 px-4 bg-gray-700">
+                <ul className="flex items-center gap-4">
                     {links.map(item=>{
                         const active = pathName.startsWith(item.path);
                         return (
@@ -34,11 +35,15 @@ export default function Layout({children}:{children: ReactNode}){
                         )
                     })}
                 </ul>
+                <div className="flex flex-col gap-2 mt-2">
+                    <label htmlFor="search" className="text-white">Search</label>
+                    <input value={search} onChange={(eve)=>setSearch(eve.target.value)} className="border p-1 max-w-80 w-full" type="text" id="search" />
+                </div>
             </header>
             <section style={{paddingBlock: 20}}>
                 {children}
             </section>
-            <footer style={{backgroundColor: "#272592",color: "#fff", paddingBlock: 20,textAlign: 'center'}}>
+            <footer className="flex justify-center py-4 px-4 bg-gray-700 text-white">
                 Footer of App
             </footer>
         </div>
