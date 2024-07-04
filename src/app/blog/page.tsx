@@ -1,4 +1,11 @@
+import { Metadata } from "next";
 import { BlogCard } from "./_components/page";
+
+export function generateMetadata(): Metadata {
+  return {
+    title: "Docs"
+  }
+}
 
 export default function Page() {
     return (

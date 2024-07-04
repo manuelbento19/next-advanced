@@ -1,6 +1,19 @@
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-export default function Page({params}: {params: {productId: string}}) {
+type Props = {
+  params: {
+    productId: string
+  }
+}
+
+export function generateMetadata({params}:Props): Metadata {
+  return {
+    title: `Product ${params.productId}`
+  }
+}
+
+export default function Page({params}:Props) {
   if(parseInt(params.productId)>100)
   return notFound();
 
