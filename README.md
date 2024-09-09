@@ -1,9 +1,5 @@
 # Anotações do Curso de Next.js 14
-Este repositório contém todas as lições e materiais relacionados à seção de roteamento do curso.
-
-Sobre o Repositório
-Este repositório tem como objetivo fornecer uma documentação prática e detalhada dos conceitos de roteamento em Next.js 14, incluindo exemplos e anotações das principais funcionalidades. As lições abordam desde o básico até conceitos mais avançados, permitindo uma compreensão completa do sistema de roteamento do Next.js.
-
+Este repositório tem como objetivo fornecer uma documentação prática e detalhada dos conceitos avançados em Next.js 14, incluindo exemplos e anotações das principais funcionalidades. As lições abordam desde o básico até conceitos mais avançados, permitindo uma compreensão completa do sistema de roteamento do Next.js.
 
 ## Parte 1: Roteamento
 
