@@ -100,3 +100,10 @@ Este repositório tem como objetivo fornecer uma documentação prática e detal
   - Exemplo: `middleware.ts` para autenticação ou validação de requisições.
 
 ## Parte 2: Renderização
+Por padrão, o Next.js pré-renderiza cada página. Isso significa que o Next.js gera HTML para cada página com antecedência, em vez de ter tudo feito pelo JavaScript do lado do cliente.
+
+- **Renderização no Lado do Servidor (SSR)**: As páginas são geradas no servidor a cada requisição. Isso garante que os dados estejam sempre atualizados.
+
+- **Renderização Estática (SSG)**: As páginas são geradas no momento da construção e são servidas como arquivos estáticos. Ideal para páginas que não mudam frequentemente.
+
+- **Renderização no Lado do Cliente (CSR)**: O conteúdo é carregado e renderizado no cliente. Isso é útil para interações dinâmicas e dados que mudam frequentemente.
