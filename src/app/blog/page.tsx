@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { BlogCard } from "./_components/page";
+import { BlogCard } from "./_components";
 
 export function generateMetadata(): Metadata {
   return {

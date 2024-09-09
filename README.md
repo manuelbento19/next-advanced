@@ -98,3 +98,5 @@ Este repositório tem como objetivo fornecer uma documentação prática e detal
 - **Middleware:**
   - Utilizar middleware para lógica que deve ser executada em todas ou algumas rotas.
   - Exemplo: `middleware.ts` para autenticação ou validação de requisições.
+
+## Parte 2: Renderização
