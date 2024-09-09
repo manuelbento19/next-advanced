@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Anotações do Curso de Next.js 14
 
-## Getting Started
+## Parte 1: Roteamento
 
-First, run the development server:
+### 1. Definição de Rotas
+  - Em Next.js, rotas são criadas automaticamente com base na estrutura de arquivos dentro do diretório `app` (ou `pages` para versões anteriores).
+  - Cada arquivo JavaScript ou TypeScript em `app` representa uma rota.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 2. Páginas e Layouts
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Páginas:**
+  - Cada componente de página no diretório `app` representa uma rota.
+  - Exemplo: `app/about/page.js` cria a rota `/about`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Layouts:**
+  - Layouts permitem definir uma estrutura comum para várias páginas.
+  - Utilizar `app/layout.js` para definir um layout que envolve páginas.
+  - Layouts são aplicados em múltiplas páginas e podem incluir cabeçalhos, rodapés, etc.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### 3. Rotas Dinâmicas
 
-## Learn More
+- **Criação de Rotas Dinâmicas:**
+  - Utilizar colchetes `[param]` para criar rotas dinâmicas.
+  - Exemplo: `app/posts/[id]/page.js` cria uma rota dinâmica para `/posts/:id`.
 
-To learn more about Next.js, take a look at the following resources:
+- **Rotas Dinâmicas Aninhadas:**
+  - Organizar rotas dinâmicas com subpastas e arquivos.
+  - Exemplo: `app/users/[userId]/posts/[postId]/page.js` para uma rota aninhada.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4. Grupos de Rotas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Grupos de Rotas:**
+    - **Usando colchetes**: agrupar rotas usando colchetes em pastas para aplicar uma estrutura de URL. Exemplo: `app/dashboard/[section]/page.js` permite `/dashboard/:section`.
+    - **Usando parênteses**: para organizar rotas e layouts em grupos sem afectar a url. Exemplo: `app/(admin)/dashboard/page.js` cria uma rota `/dashboard` dentro do grupo `(admin)`.
+    
+### 5. Link e Navegação
 
-## Deploy on Vercel
+- **Componente `Link`:**
+  - Utilizar o componente `Link` para navegação entre páginas.
+  - Exemplo:
+    ```jsx
+    import Link from 'next/link';
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    function Navigation() {
+      return (
+        <nav>
+          <Link href="/about">About</Link>
+          <Link href="/contact">Contact</Link>
+        </nav>
+      );
+    }
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Navegação Programática:**
+  - Usar `router.push` e `router.replace` para navegação programática.
+  - Exemplo:
+    ```jsx
+    import { useRouter } from 'next/router';
+
+    function RedirectButton() {
+      const router = useRouter();
+
+      return (
+        <button onClick={() => router.push('/home')}>
+          Go to Home
+        </button>
+      );
+    }
+    ```
+
+### 6. Tratamento de Erros em Rotas
+
+- **Páginas de Erro:**
+  - Criar páginas de erro personalizadas para códigos de status como 404 e 500.
+  - Exemplo: `app/404/page.js` para uma página 404 personalizada.
+
+- **Tratamento de Erros:**
+  - Implementar lógica para lidar com erros específicos dentro de rotas dinâmicas.
+  - Exemplo: Exibir mensagens de erro ou páginas de fallback.
+
+### 7. Rotas Paralelas e Interceptações
+
+- **Rotas Paralelas:**
+  - Utilizar rotas paralelas para renderizar múltiplos componentes em uma única página.
+  - Exemplo: `app/dashboard/page.js` e `app/dashboard/notifications/page.js` para exibir notificações paralelas.
+
+- **Interceptação de Rotas:**
+  - Interceptar e manipular rotas antes de serem exibidas.
+  - Exemplo: Usar interceptadores para lógica de autenticação ou redirecionamentos.
+
+### 8. Manipuladores de Rotas e Middleware
+
+- **Manipuladores de Rotas:**
+  - Definir manipuladores para alterar o comportamento das rotas, como parâmetros de consulta ou autenticação.
+  - Exemplo: Manipular os parâmetros da URL para filtrar conteúdo.
+
+- **Middleware:**
+  - Utilizar middleware para lógica que deve ser executada em todas ou algumas rotas.
+  - Exemplo: `middleware.ts` para autenticação ou validação de requisições.
