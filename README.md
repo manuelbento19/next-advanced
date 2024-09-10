@@ -132,3 +132,7 @@ Ao construir aplicativos React, você precisará considerar quais partes do seu 
 
 ### Pré-renderização parcial
 A pré-renderização parcial (PPR) permite combinar componentes estáticos e dinâmicos na mesma rota. Durante a construção, o Next.js pré-renderiza o máximo possível da rota. Se um código dinâmico for detectado, como a leitura da solicitação de entrada, você pode encapsular o componente relevante com um React **Suspense**. O fallback da **Suspense** será então incluído no HTML pré-renderizado.
+
+## Parte 3: Data Fetching (busca de dados)
+Data Fetching refere-se ao processo de recuperação de dados de uma fonte externa, como uma API ou um banco de dados, e a disponibilização desses dados para serem usados na renderização das páginas da aplicação. O Next.js 14 fornece várias abordagens para fazer isso de maneira eficiente.
+
