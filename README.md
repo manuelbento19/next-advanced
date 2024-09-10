@@ -157,3 +157,6 @@ Se você não quiser armazenar em cache a resposta de fetch, você pode fazer o 
 ```jsx
 let data = await fetch('https://api.vercel.app/blog', { cache: 'no-store' })
 ```
+
+### Buscando dados no cliente
+No entanto, ainda há casos em que a busca de dados do lado do cliente faz sentido. Nesses cenários, você pode chamar manualmente `fetch`um `useEffect` ou recorrer a bibliotecas React populares na comunidade (como `SWR`ou `React Query`) para busca de dados.
