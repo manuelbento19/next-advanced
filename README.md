@@ -107,3 +107,13 @@ Por padrão, o Next.js pré-renderiza cada página. Isso significa que o Next.js
 - **Renderização Estática (SSG)**: As páginas são geradas no momento da construção e são servidas como arquivos estáticos. Ideal para páginas que não mudam frequentemente.
 
 - **Renderização no Lado do Cliente (CSR)**: O conteúdo é carregado e renderizado no cliente. Isso é útil para interações dinâmicas e dados que mudam frequentemente.
+
+### React Server Components
+Por padrão, o Next.js usa Server Components. Permitem que você escreva UI que pode ser renderizada e, opcionalmente, armazenada em cache no servidor. No Next.js, o trabalho de renderização é dividido ainda mais por segmentos de rota para habilitar streaming e renderização parcial, e há três estratégias diferentes de renderização de servidor:
+
+- **Renderização estática (padrão)**: as rotas são renderizadas no momento da construção (build) ou em segundo plano após a revalidação dos dados.
+
+- **Renderização dinâmica**: as rotas são renderizadas para cada usuário no momento da solicitação. Funções dinâmicas dependem de informações que só podem ser conhecidas no momento da solicitação, como cookies do usuário, cabeçalhos de solicitações atuais ou parâmetros de pesquisa da URL.
+
+- **Streaming**: permite que você renderize progressivamente a UI do servidor. O trabalho é dividido em pedaços e transmitido para o cliente conforme fica pronto. Isso permite que o usuário veja partes da página imediatamente, antes que todo o conteúdo tenha terminado de renderizar.
+
