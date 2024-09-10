@@ -160,3 +160,32 @@ let data = await fetch('https://api.vercel.app/blog', { cache: 'no-store' })
 
 ### Buscando dados no cliente
 No entanto, ainda há casos em que a busca de dados do lado do cliente faz sentido. Nesses cenários, você pode chamar manualmente `fetch`um `useEffect` ou recorrer a bibliotecas React populares na comunidade (como `SWR`ou `React Query`) para busca de dados.
+
+```tsx
+'use client'
+ 
+import { useState, useEffect } from 'react'
+ 
+export function Posts() {
+  const [posts, setPosts] = useState(null)
+ 
+  useEffect(() => {
+    async function fetchPosts() {
+      let res = await fetch('https://api.vercel.app/blog')
+      let data = await res.json()
+      setPosts(data)
+    }
+    fetchPosts()
+  }, [])
+ 
+  if (!posts) return <div>Loading...</div>
+ 
+  return (
+    <ul>
+      {posts.map((post) => (
+        <li key={post.id}>{post.title}</li>
+      ))}
+    </ul>
+  )
+}
+```
