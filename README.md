@@ -117,3 +117,10 @@ Por padrão, o Next.js usa Server Components. Permitem que você escreva UI que 
 
 - **Streaming**: permite que você renderize progressivamente a UI do servidor. O trabalho é dividido em pedaços e transmitido para o cliente conforme fica pronto. Isso permite que o usuário veja partes da página imediatamente, antes que todo o conteúdo tenha terminado de renderizar.
 
+### React Client Components
+Os Client Components permitem que você escreva uma IU interativa que é pré-renderizada no servidor e pode usar JavaScript do cliente para executar no navegador.
+
+Há algumas vantagens em fazer o trabalho de renderização no cliente, incluindo:
+- **Interatividade**: os componentes do cliente podem usar ouvintes de estado, efeitos e eventos, o que significa que eles podem fornecer feedback imediato ao usuário e atualizar a interface do usuário.
+
+- **APIs do navegador**: os componentes do cliente têm acesso às APIs do navegador, como geolocalizaçãoou localStorage.
