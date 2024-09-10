@@ -136,3 +136,24 @@ A pré-renderização parcial (PPR) permite combinar componentes estáticos e di
 ## Parte 3: Data Fetching (busca de dados)
 Data Fetching refere-se ao processo de recuperação de dados de uma fonte externa, como uma API ou um banco de dados, e a disponibilização desses dados para serem usados na renderização das páginas da aplicação. O Next.js 14 fornece várias abordagens para fazer isso de maneira eficiente.
 
+### Buscando dados no servidor com a fetch API
+Este componente buscará e exibirá uma lista de posts de blog. A resposta de fetch será automaticamente armazenada em cache.
+```tsx 
+export default async function Page() {
+  let data = await fetch('https://api.vercel.app/blog')
+  let posts = await data.json()
+  return (
+    <ul>
+      {posts.map((post) => (
+        <li key={post.id}>{post.title}</li>
+      ))}
+    </ul>
+  )
+}
+```
+Se você não estiver usando nenhuma função dinâmica em nenhum outro lugar nesta rota, ela será pré-renderizada durante `next build` uma página estática.
+
+Se você não quiser armazenar em cache a resposta de fetch, você pode fazer o seguinte:
+```jsx
+let data = await fetch('https://api.vercel.app/blog', { cache: 'no-store' })
+```
