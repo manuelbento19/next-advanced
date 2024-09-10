@@ -124,3 +124,11 @@ Há algumas vantagens em fazer o trabalho de renderização no cliente, incluind
 - **Interatividade**: os componentes do cliente podem usar ouvintes de estado, efeitos e eventos, o que significa que eles podem fornecer feedback imediato ao usuário e atualizar a interface do usuário.
 
 - **APIs do navegador**: os componentes do cliente têm acesso às APIs do navegador, como geolocalizaçãoou localStorage.
+
+### Padrões de composição de servidor e cliente
+Ao construir aplicativos React, você precisará considerar quais partes do seu aplicativo devem ser renderizadas no servidor ou no cliente.
+#### Quando usar componentes de servidor e cliente?
+![alt text](./public//image.png)
+
+### Pré-renderização parcial
+A pré-renderização parcial (PPR) permite combinar componentes estáticos e dinâmicos na mesma rota. Durante a construção, o Next.js pré-renderiza o máximo possível da rota. Se um código dinâmico for detectado, como a leitura da solicitação de entrada, você pode encapsular o componente relevante com um React **Suspense**. O fallback da **Suspense** será então incluído no HTML pré-renderizado.
